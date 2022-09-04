@@ -1,16 +1,19 @@
 {
   "files": {
-    "main.css": "/react-todolists/static/css/main.073c9b0a.css",
-    "main.js": "/react-todolists/static/js/main.8695b660.js",
-    "static/js/787.26c46cee.chunk.js": "/react-todolists/static/js/787.26c46cee.chunk.js",
-    "static/media/logo.svg": "/react-todolists/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/react-todolists/index.html",
-    "main.073c9b0a.css.map": "/react-todolists/static/css/main.073c9b0a.css.map",
-    "main.8695b660.js.map": "/react-todolists/static/js/main.8695b660.js.map",
-    "787.26c46cee.chunk.js.map": "/react-todolists/static/js/787.26c46cee.chunk.js.map"
+    "main.css": "/react-todolist/static/css/main.80f68605.css",
+    "main.js": "/react-todolist/static/js/main.decb7a34.js",
+    "static/js/787.26c46cee.chunk.js": "/react-todolist/static/js/787.26c46cee.chunk.js",
+    "static/media/person.svg": "/react-todolist/static/media/person.a4047e45f716bdfa9f62cdf595c4ae54.svg",
+    "static/media/nodata.svg": "/react-todolist/static/media/nodata.1fda4f13b01081e9930a707aad0ddb8e.svg",
+    "static/media/logo.svg": "/react-todolist/static/media/logo.31d78572aa28c702a8d50136a6ead06d.svg",
+    "static/media/logo_lg.svg": "/react-todolist/static/media/logo_lg.403a4085b5d73d81486339a4e86f75f5.svg",
+    "index.html": "/react-todolist/index.html",
+    "main.80f68605.css.map": "/react-todolist/static/css/main.80f68605.css.map",
+    "main.decb7a34.js.map": "/react-todolist/static/js/main.decb7a34.js.map",
+    "787.26c46cee.chunk.js.map": "/react-todolist/static/js/787.26c46cee.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.8695b660.js"
+    "static/css/main.80f68605.css",
+    "static/js/main.decb7a34.js"
   ]
 }
