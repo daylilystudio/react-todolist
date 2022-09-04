@@ -3,6 +3,9 @@
 - do : use React and 5xcamp todo API
 - do : use React Router and deploy to GitHub Pages
 
+## DEMO
+[Link](https://daylilystudio.github.io/react-todolist/)
+
 ## TodoList function
 - If there is no todo list, display the text "No TodoList data".
 - Add todo list.
@@ -15,5 +18,7 @@
 - Reminds user when the form field is empty or not in Email format. (SweetAlert2 plugin)
 - Reminds user when registering repeatedly and returning an API error. (SweetAlert2 plugin)
 
-## Display page
-[Link](https://daylilystudio.github.io/react-todolists)
+## page
+1. index(Login)
+2. Sign up
+3. todo list
