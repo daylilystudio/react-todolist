@@ -80,8 +80,8 @@ function SignUp () {
               message: "此欄位必須填寫"
             },
             minLength: {
-              value: 8,
-              message: "密碼至少為 8 碼"
+              value: 6,
+              message: "密碼至少為 6 碼"
             }
           })}
         />
@@ -95,8 +95,8 @@ function SignUp () {
               message: "此欄位必須填寫"
             },
             minLength: {
-              value: 8,
-              message: "密碼至少為 8 碼"
+              value: 6,
+              message: "密碼至少為 6 碼"
             }
           })}
         />
