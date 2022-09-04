@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/react-todolists/static/css/main.073c9b0a.css",
+    "main.js": "/react-todolists/static/js/main.8695b660.js",
+    "static/js/787.26c46cee.chunk.js": "/react-todolists/static/js/787.26c46cee.chunk.js",
+    "static/media/logo.svg": "/react-todolists/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/react-todolists/index.html",
+    "main.073c9b0a.css.map": "/react-todolists/static/css/main.073c9b0a.css.map",
+    "main.8695b660.js.map": "/react-todolists/static/js/main.8695b660.js.map",
+    "787.26c46cee.chunk.js.map": "/react-todolists/static/js/787.26c46cee.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.8695b660.js"
+  ]
+}
