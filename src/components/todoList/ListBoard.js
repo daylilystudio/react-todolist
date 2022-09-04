@@ -34,7 +34,7 @@ function ListBoard () {
   const handleSendTodoAPI = (e) => {
     e.preventDefault()
     if (todoInput.trim() === '' || todoInput === '') {
-      sweetAlert('未輸入待辦事項', '是不是想偷懶', 'info')
+      sweetAlert('未輸入待辦事項', '你恍神吼', 'info')
       return
     }
     setLoading(true)
@@ -97,7 +97,7 @@ function ListBoard () {
                   <Lists filterType={ filterType } todoList={ todoList }
                   onListChange={ setTodoList } />
                   <div className="todoList_statistics">
-                    <p> { todoList.filter(item => item.completed_at).length } 個已完成項目</p>
+                    <p> { todoList.filter(item => item.completed_at===null).length } 個待完成項目</p>
                     <a href="#" onClick={ cleanFinishedTodo }>清除已完成項目
                       {
                         waitDelete ? 
