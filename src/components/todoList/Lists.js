@@ -15,13 +15,13 @@ function Lists (props) {
       getTodoList(token).then(res => {
         onListChange(res.data.todos)
         setLoading('')
-        showToast('更改待辦事項狀態完成', 'success')
+        showToast('Change Todo State', 'success')
       }).catch(err => {
-        showToast('取得待辦事項失敗', 'error')
+        showToast('Get Todo Fail', 'error')
         setLoading('')
       })
     }).catch(err => {
-      showToast('更改待辦事項狀態失敗', 'error')
+      showToast('Change Todo State Fail', 'error')
       setLoading('')
     })
   }
@@ -33,13 +33,13 @@ function Lists (props) {
       getTodoList(token).then(res => {
         onListChange(res.data.todos)
         setLoading('')
-        showToast('刪除待辦事項成功', 'success')
+        showToast('Delete Todo Success', 'success')
       }).catch(err => {
-        showToast('取得待辦事項失敗', 'error')
+        showToast('Get Todo Fail', 'error')
         setLoading('')
       })
     }).catch(err => {
-      showToast('刪除待辦事項失敗', 'error')
+      showToast('Delete Todo Fail', 'error')
       setLoading('')
     })
   }
@@ -49,31 +49,28 @@ function Lists (props) {
     : (filterType === 'wait')
     ? todoList.filter(item => item.completed_at === null)
     : todoList.filter(item => item.completed_at !== null)
-
+  console.log(filteredData)
   return (
-    <ul className="todoList_item">
+    <ul>
+      { filteredData.length===0 ? <li className="text-center text-neutral-400 mt-2"><FontAwesomeIcon className="fa-beat mr-3" icon="fa-solid fa-person-running" />NO DATA</li> : '' }
       { filteredData.map(item => {
         return (
-          <li key={ item.id }>
-            <label className="todoList_label">
-              <input className="todoList_input" type="checkbox" value={ item.completed_at ? item.completed_at : '' }
+          <li key={ item.id } className="group flex justify-between py-3 border-b border-solid border-gray-300">
+            <label className="flex items-center text-stone-700 relative">
+              <input className="todoList_check cursor-pointer w-5 h-5 rounded-md bg-stone-300 mr-3 appearance-none checked:bg-cyan-500 duration-300" type="checkbox" value={ item.completed_at ? item.completed_at : '' }
               checked={ item.completed_at ? 'checked' : '' } onChange={ () => handleToggle(token, item.id) } />
-              <span>{ item.content }</span>
+              <i className="absolute hidden left-2 bottom-1.5 rotate-45 w-2 h-4 border-b-4 border-r-4 border-white"></i>
+              <span className="cursor-pointer">{ item.content }</span>
               {
-                loading === item.id ?
-                <div className="ms-2 spinner-border spinner-border-sm text-secondary" role="status">
-                  <span className="visually-hidden">Loading...</span>
-                </div>
-                : ''
+                loading === item.id ? <FontAwesomeIcon icon="fa-solid fa-spinner" className="fa-spin ml-1" /> : ''
               }
             </label>
-            <a href="#" className="mb-3" onClick={ (e) => handleDeleteTodo(e, token, item.id) }>
+            <button className="opacity-0 group-hover:opacity-100" onClick={ (e) => handleDeleteTodo(e, token, item.id) }>
               <FontAwesomeIcon icon="fa-solid fa-xmark" />
-            </a>
+            </button>
           </li>
         )
-      }) 
-  }
+      }) }
     </ul>
   )
 }

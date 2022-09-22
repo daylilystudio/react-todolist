@@ -22,7 +22,7 @@ function ListBoard () {
       setTodoList(res.data.todos)
       setLoading(false)
     }).catch(err => {
-      showToast('取得待辦事項失敗', 'error')
+      showToast('Get Todo Fail', 'error')
       setLoading(false)
     })
   }, [])
@@ -34,22 +34,22 @@ function ListBoard () {
   const handleSendTodoAPI = (e) => {
     e.preventDefault()
     if (todoInput.trim() === '' || todoInput === '') {
-      sweetAlert('未輸入待辦事項', '你恍神吼', 'info')
+      sweetAlert('No Enter Todo', 'Wake up!!', 'info')
       return
     }
     setLoading(true)
     postTodo(token, todoInput).then(res => {
       getTodoList(token).then(res => {
         setTodoList(res.data.todos)
-        showToast('新增待辦事項成功', 'success')
+        showToast('Add Todo Success', 'success')
         setLoading(false)
       }).catch(err => {
-        showToast('取得待辦事項失敗', 'error')
+        showToast('Get Todo Fail', 'error')
         setLoading(false)
       })
       setTodoInput('')
     }).catch(err => {
-      showToast('新增待辦事項失敗', 'error')
+      showToast('Add Todo Fail', 'error')
     })
   }
 
@@ -66,58 +66,50 @@ function ListBoard () {
     getTodoList(token).then(res => {
       setTodoList(res.data.todos)
       setWaitDelete(false)
-      showToast('刪除已完成事項成功', 'success')
+      showToast('Delete Completed Todo Success', 'success')
     }).catch(err => {
       console.log(err)
       setWaitDelete(false)
-      showToast('刪除已完成事項失敗', 'error')
+      showToast('Delete Completed Todo Fail', 'error')
     })
   }
   return (
-    <div className="conatiner todoListPage vhContainer">
-      <div className="todoList_Content">
-          <div className="inputBox">
-              <input type="text" placeholder="請輸入待辦事項"
-              onChange={ handleSetTodoInput } value={ todoInput } />
-              <a href="#" onClick={ handleSendTodoAPI }>
-                {
-                  loading ? 
-                  <div className="spinner-border spinner-border-sm text-light" role="status">
-                    <span className="visually-hidden">Loading...</span>
-                  </div>
-                  : <FontAwesomeIcon icon="fa-solid fa-plus" />
-                }
-              </a>
-          </div>
+    <div className="todoList_content mx-auto mt-10 pb-10">
+      <div className="flex relative mb-4 shadow-lg">
+        <input type="text" placeholder="enter todo list..." className="w-full h-12 rounded-lg pl-4"
+        onChange={ handleSetTodoInput } value={ todoInput } />
+        <button onClick={ handleSendTodoAPI } className="w-10 h-10 rounded-lg absolute top-2/4 right-1 -translate-y-1/2 bg-cyan-500 hover:bg-cyan-600 text-white flex items-center justify-center">
           {
-            todoList.length !== 0 ? (
-              <div className="todoList_list">
-              <ListTags filterType={ filterType } onFilterChange={ setFilterType } />
-              <div className="todoList_items">
-                  <Lists filterType={ filterType } todoList={ todoList }
-                  onListChange={ setTodoList } />
-                  <div className="todoList_statistics">
-                    <p> { todoList.filter(item => item.completed_at===null).length } 個待完成項目</p>
-                    <a href="#" onClick={ cleanFinishedTodo }>清除已完成項目
-                      {
-                        waitDelete ? 
-                        <div className="spinner-border spinner-border-sm text-dark" role="status">
-                          <span className="visually-hidden">Loading...</span>
-                        </div>
-                        : ''
-                      }
-                    </a>
-                  </div>
-              </div>
-          </div>
-            ) : 
-            <div className="emptyBoard mt-16">
-              <p className="mb-4 text-center">目前尚無待辦事項</p>
-              <img src={Nodata} className="emptyImg w-full md:w-3/5 mx-auto" alt="" />
-            </div>
+            loading ? <FontAwesomeIcon icon="fa-solid fa-spinner" className="fa-spin" />
+            : <FontAwesomeIcon icon="fa-solid fa-plus" />
           }
-          
+        </button>
       </div>
+      {
+        todoList.length !== 0 ? (
+          <div className="bg-white/90 shadow-lg rounded-lg">
+            <ListTags filterType={ filterType } onFilterChange={ setFilterType } />
+            <div className="px-6 pb-5 pt-4">
+              <Lists filterType={ filterType } todoList={ todoList }
+              onListChange={ setTodoList } />
+              <div className="text-sm flex justify-between mt-5">
+                <p className="text-cyan-600"> { todoList.filter(item => item.completed_at===null).length } pending item</p>
+                { 
+                  todoList.filter(item => item.completed_at).length>0 ?
+                  <button onClick={ cleanFinishedTodo } className="text-neutral-500 hover:text-neutral-600">
+                    <FontAwesomeIcon icon="fa-solid fa-eraser" /> Delete Completed
+                    { waitDelete ? <FontAwesomeIcon icon="fa-solid fa-spinner" className="fa-spin ml-1" /> : '' }
+                  </button> : <FontAwesomeIcon className="text-xl text-cyan-400" icon="fa-regular fa-face-laugh-wink" />
+                }
+              </div>
+            </div>
+          </div>
+        ) : 
+        <div className="emptyBoard mt-16">
+          <p className="mb-4 text-center">目前尚無待辦事項</p>
+          <img src={Nodata} className="w-full md:w-3/5 mx-auto" alt="" />
+        </div>
+      }
     </div>
   )
 }

@@ -4,6 +4,7 @@ import ListBoard from '../components/todoList/ListBoard'
 import { useAuth, useUserName } from "../utils/Context"
 import { checkLogIn } from '../utils/todoAPI'
 import { showToast } from '../utils/sweetalert'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 //image
 import Logo from "../assets/image/logo.svg"
 
@@ -14,27 +15,31 @@ function ListPage () {
   useEffect(() => {
     checkLogIn(token).catch(err => {
       console.log(err)
-      showToast('請重新登入', 'warning')
+      showToast('Please Login again', 'warning')
       navigate('/', { replace: true })
     })
   }, [])
 
   const logOut = () => {
     setToken(null)
-    showToast('您已登出', 'success')
+    showToast('Have been logout', 'success')
   }
 
   return (
-    <div id="todoListPage" className="bg-half">
-    <nav>
-        <img className="w-60" src={Logo} alt="" />
-        <ul className="flex items-center">
-          <li className="todo_sm mr-6"><span>{ userName }的代辦</span></li>
-          <li><button onClick={ logOut }>登出</button></li>
-        </ul>
-    </nav>
-    <ListBoard />
-  </div>
+    <div id="todoListPage">
+      <nav className="flex justify-between pt-5 px-4 sm:px-8 text-white">
+          <img className="w-48 sm:w-60 opacity-75" src={Logo} alt="" />
+          <ul className="flex items-center">
+            <li className="todo_sm mr-6"><span>{ userName }'s Todo</span></li>
+            <li>
+              <button onClick={ logOut } title="Logout" className="flex items-center">
+                <FontAwesomeIcon className="text-2xl hover:text-orange-300" icon="fa-solid fa-right-from-bracket" />
+              </button>
+            </li>
+          </ul>
+      </nav>
+      <ListBoard />
+    </div>
   )
 }
 

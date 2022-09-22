@@ -1,19 +1,15 @@
 import { Outlet } from "react-router-dom"
 //image
-import Logo from "../assets/image/logo_lg.svg"
-import Person from "../assets/image/person.svg"
+import Logo from "../assets/image/logo.svg"
 
 function Home() {
   return (
-    <div id="loginPage" className="bg-yellow">
-    <div className="conatiner loginPage vhContainer">
-      <div className="side">
-        <img className="logoImg" src={Logo} alt="Logo" />
-        <img className="d-m-n" src={Person} alt="workImg" />
+    <div id="loginPage">
+      <div className="w-11/12 sm:w-96 py-10 mx-auto">
+        <img className="w-full mb-2 opacity-75" src={Logo} alt="Logo" />
+        <Outlet />
       </div>
-      <Outlet />
     </div>
-  </div>
   )
 }
 

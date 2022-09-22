@@ -3,8 +3,8 @@ import { useState } from 'react'
 import { Routes, Route } from "react-router-dom"
 import { AuthContext, UserNameContext } from './utils/Context'
 import Home from './pages/Home'
-import LogIn from './components/loginView/LogIn'
-import SignIn from './components/loginView/SignUp'
+import Login from './components/loginView/Login'
+import Register from './components/loginView/Register'
 import Main from './pages/Main'
 import ProtectedRoute from './utils/ProtectedRoute'
 
@@ -16,8 +16,8 @@ function App() {
       <UserNameContext.Provider value={{ userName, setUserName }}>
         <Routes>
           <Route path="/" element={<Home />}>
-            <Route index element={<LogIn />} />
-            <Route path="signin" element={<SignIn />} />
+            <Route index element={<Login />} />
+            <Route path="register" element={<Register />} />
           </Route>
           <Route element={<ProtectedRoute />}>
             <Route path="todolist" element={<Main />} />
