@@ -18,7 +18,7 @@ function ListPage () {
       showToast('Please Login again', 'warning')
       navigate('/', { replace: true })
     })
-  }, [])
+  }, [navigate, token])
 
   const logOut = () => {
     setToken(null)

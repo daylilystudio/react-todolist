@@ -16,6 +16,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+@media (max-width: 576px) {
+  body {
+    background-size: auto 160%;
+  }
+}
 
 .text-shadow{
   text-shadow: 0 0 10px #000;
@@ -46,4 +51,15 @@ body {
 
 input {
   opacity: .8;
+}
+
+.animate-moon{
+  animation: spin 60s linear infinite;
+  /* filter: drop-shadow(0 0 10px rgba(255,255,255, .5));
+  filter: drop-shadow(0 0 10px rgba(0,0,0, .5)); */
+}
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
 }

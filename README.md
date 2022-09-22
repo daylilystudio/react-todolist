@@ -1,7 +1,9 @@
 # React TodoList Task for Hexschool certificate
 
-- do : use React and 5xcamp todo API
-- do : use React Router and deploy to GitHub Pages
+- Use React and 5xcamp todo API
+- Use React Router
+- deploy to GitHub Pages
+- Use tailwindcss and fontawesome
 
 ## DEMO
 [Link](https://daylilystudio.github.io/react-todolist/)
@@ -19,6 +21,7 @@
 - Reminds user when registering repeatedly and returning an API error. (SweetAlert2 plugin)
 
 ## page
-1. index(Login)
-2. Sign up
-3. todo list
+1. Index(Login)
+2. Register
+3. Todo list
+4. 404 page
